@@ -47,4 +47,10 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertEquals(2.9, calculator.getResult("1.3 + 1.6"));
     }
+
+    @Test
+    public void testValidSubtractionFormat() {
+        final Calculator calculator = new Calculator();
+        assertDoesNotThrow(() -> calculator.getResult("10 - 4"));
+    }
 }
