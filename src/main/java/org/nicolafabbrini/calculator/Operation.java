@@ -13,6 +13,6 @@ public class Operation {
     public double getResult() {
         Optional.ofNullable(expression).orElseThrow(() -> new IllegalArgumentException("The expression must be set"));
 
-        return -1;
+        throw new IllegalArgumentException();
     }
 }
