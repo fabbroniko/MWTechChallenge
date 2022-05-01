@@ -54,6 +54,6 @@ public class ArithmeticOperation extends AbstractOperation {
         if(x == 0)
             return 0;
 
-        return -1;
+        return x / y;
     }
 }
