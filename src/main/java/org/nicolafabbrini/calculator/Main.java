@@ -63,6 +63,9 @@ public class Main {
         System.out.println("Welcome to YourWave! Our newest calculator with anti-floating point error (cheat) system.");
         System.out.println("This calculator is currently able to perform the following operations: ");
         System.out.println("- Addition -> Syntax is {x} + {y}");
+        System.out.println("- Subtraction -> Syntax is {x} - {y}");
+        System.out.println("- Multiplication -> Syntax is {x} * {y}");
+        System.out.println("- Division -> Syntax is {x} / {y}");
         System.out.println(MessageFormat.format("- Quit -> Syntax is {0}", QUIT_COMMAND));
     }
 }

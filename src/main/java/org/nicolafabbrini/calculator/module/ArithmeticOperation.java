@@ -22,6 +22,15 @@ public class ArithmeticOperation extends AbstractOperation {
         return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*/]\\s(\\d+([.]?\\d+)?)", expression);
     }
 
+    private double divide(final double x, final double y) {
+        if(y == 0 && x == 0)
+            throw new RuntimeException("infinity");
+        if(y == 0)
+            throw new RuntimeException("undefined");
+
+        return x / y;
+    }
+
     /**
      * Defines the parameters of the expression passed.
      */
@@ -44,16 +53,5 @@ public class ArithmeticOperation extends AbstractOperation {
             this.y = Double.parseDouble(split[SECOND_OPERAND_INDEX]);
             this.operator = split[OPERATOR_INDEX];
         }
-    }
-
-    private double divide(final double x, final double y) {
-        if(y == 0 && x == 0)
-            throw new RuntimeException("infinity");
-        if(y == 0)
-            throw new RuntimeException("undefined");
-        if(x == 0)
-            return 0;
-
-        return x / y;
     }
 }
