@@ -35,3 +35,26 @@ Here are the details:
 All work must be done using a TDD approach.
 
 Stories to build sine and cosine functions are scheduled in the next iteration.
+
+## CircleCI / GitHub integration
+
+The project has been integrated with CircleCI for continuous development.
+Each push to origin triggers a build on CircleCI that starts a docker container and runs the tests.
+
+Github has also been setup to allow commits to master only through PRs, and PRs can only be merged if the build on CircleCI passes. This guarantees that whatever is pushed into master passes tests.
+
+## Overly verbose commits
+
+I committed every time i wrote a failing test and the related code changes to make them pass into different commits. This is to show you the TDD approach in a verifiable manner.
+
+## Releases
+
+Releases (PRs from feature branch to master) have been separated in logical chuncks. Each chunk provided a working functionality usable by the 'client' and it can be divided into 5 different releases:
+
+- Addition feature;
+- Subtraction;
+- Multiplication;
+- Division;
+- Refactoring (added modularity)
+
+Each one of these releases went through GitHub Checks integrated with CircleCI.
