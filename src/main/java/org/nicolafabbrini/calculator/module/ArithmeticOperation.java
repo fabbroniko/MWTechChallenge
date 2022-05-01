@@ -11,7 +11,7 @@ public class ArithmeticOperation extends AbstractOperation {
         return switch (expressionParameters.operator) {
             case "+" -> expressionParameters.x + expressionParameters.y;
             case "-" -> expressionParameters.x - expressionParameters.y;
-            case "*" -> -1;
+            case "*" -> expressionParameters.x * expressionParameters.y;
             default -> throw new IllegalArgumentException();
         };
     }
