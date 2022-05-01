@@ -99,4 +99,10 @@ public class CalculatorTest {
 
         assertEquals("infinity", thrown.getMessage());
     }
+
+    @Test
+    public void testDivision() {
+        final Calculator calculator = new Calculator();
+        assertEquals(5, calculator.getResult("15 / 3"));
+    }
 }
