@@ -53,4 +53,10 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertDoesNotThrow(() -> calculator.getResult("10 - 4"));
     }
+
+    @Test
+    public void testSubtraction() {
+        final Calculator calculator = new Calculator();
+        assertEquals(6, calculator.getResult("10 - 4"));
+    }
 }
