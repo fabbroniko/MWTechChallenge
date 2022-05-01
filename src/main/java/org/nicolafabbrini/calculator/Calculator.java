@@ -4,19 +4,16 @@ import org.nicolafabbrini.calculator.module.ArithmeticOperation;
 
 import java.util.Optional;
 
+/**
+ * Represents the calculator used by the user to perform any kind of mathematical operation.
+ */
 public class Calculator {
 
-    private final String expression;
-
-    public Calculator(final String expression) {
-        this.expression = expression;
-    }
-
     /**
-     * Returns the result of the operation described by the expression passed when constructing this object.
-     * @return The result represented as double
+     * Returns the result of the operation described by the expression passed to this method.
+     * @return The result of the expression.
      */
-    public double getResult() {
+    public double getResult(final String expression) {
         Optional.ofNullable(expression).orElseThrow(() -> new IllegalArgumentException("The expression must be set"));
 
         return new ArithmeticOperation().getResult(expression);

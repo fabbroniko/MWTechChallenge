@@ -10,41 +10,41 @@ public class CalculatorTest {
 
     @Test
     public void testCalculatorNullInput() {
-        final Calculator calculator = new Calculator(null);
-        assertThrows(IllegalArgumentException.class, calculator::getResult);
+        final Calculator calculator = new Calculator();
+        assertThrows(IllegalArgumentException.class, () -> calculator.getResult(null));
     }
 
     @Test
     public void testCalculatorNullInputWithMessage() {
-        final Calculator calculator = new Calculator(null);
-        Exception thrown = assertThrows(IllegalArgumentException.class, calculator::getResult);
+        final Calculator calculator = new Calculator();
+        Exception thrown = assertThrows(IllegalArgumentException.class, () -> calculator.getResult(null));
 
         assertEquals("The expression must be set", thrown.getMessage());
     }
 
     @Test
     public void testCalculatorWithWrongExpressionFormat() {
-        final Calculator calculator = new Calculator("Hello");
-        assertThrows(IllegalArgumentException.class, calculator::getResult);
+        final Calculator calculator = new Calculator();
+        assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
     }
 
     @Test
     public void testCalculatorWrongFormatWithMessage() {
-        final Calculator calculator = new Calculator("Hello");
-        Exception thrown = assertThrows(IllegalArgumentException.class, calculator::getResult);
+        final Calculator calculator = new Calculator();
+        Exception thrown = assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
 
         assertEquals("The expression is not valid", thrown.getMessage());
     }
 
     @Test
     public void testValidAdditionFormat() {
-        final Calculator calculator = new Calculator("1.3 + 1.6");
-        assertDoesNotThrow(calculator::getResult);
+        final Calculator calculator = new Calculator();
+        assertDoesNotThrow(() -> calculator.getResult("1.3 + 1.6"));
     }
 
     @Test
     public void testAddition() {
-        final Calculator calculator = new Calculator("1.3 + 1.6");
-        assertEquals(2.9, calculator.getResult());
+        final Calculator calculator = new Calculator();
+        assertEquals(2.9, calculator.getResult("1.3 + 1.6"));
     }
 }
