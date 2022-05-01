@@ -77,4 +77,10 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertDoesNotThrow(() -> calculator.getResult("19 / 2"));
     }
+
+    @Test
+    public void testDivisionZeroDividend() {
+        final Calculator calculator = new Calculator();
+        assertEquals(0, calculator.getResult("0 / 4"));
+    }
 }
