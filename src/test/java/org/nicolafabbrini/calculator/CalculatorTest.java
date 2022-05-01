@@ -83,4 +83,12 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertEquals(0, calculator.getResult("0 / 4"));
     }
+
+    @Test
+    public void testDivisionZeroDivisor() {
+        final Calculator calculator = new Calculator();
+        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("5 / 0"));
+
+        assertEquals("undefined", thrown.getMessage());
+    }
 }
