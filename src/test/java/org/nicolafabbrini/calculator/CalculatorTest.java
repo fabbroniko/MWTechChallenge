@@ -19,7 +19,7 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator(null);
         Exception thrown = assertThrows(IllegalArgumentException.class, calculator::getResult);
 
-        assertEquals("The expression is not valid", thrown.getMessage());
+        assertEquals("The expression must be set", thrown.getMessage());
     }
 
     @Test
