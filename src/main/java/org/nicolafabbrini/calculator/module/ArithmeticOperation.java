@@ -47,10 +47,12 @@ public class ArithmeticOperation extends AbstractOperation {
     }
 
     private double divide(final double x, final double y) {
-        if(x == 0)
-            return 0;
+        if(y == 0 && x == 0)
+            throw new RuntimeException("infinity");
         if(y == 0)
             throw new RuntimeException("undefined");
+        if(x == 0)
+            return 0;
 
         return -1;
     }
