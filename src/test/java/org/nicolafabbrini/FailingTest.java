@@ -8,6 +8,6 @@ public class FailingTest {
 
     @Test
     public void testWorkflow(){
-        fail();
+        fail(); // This will be removed as soon as the integration is successful
     }
 }
