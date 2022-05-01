@@ -71,4 +71,10 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertEquals(15, calculator.getResult("3 * 5"));
     }
+
+    @Test
+    public void testValidDivisionFormat() {
+        final Calculator calculator = new Calculator();
+        assertDoesNotThrow(() -> calculator.getResult("19 / 2"));
+    }
 }
