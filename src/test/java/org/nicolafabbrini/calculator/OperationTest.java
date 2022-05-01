@@ -41,4 +41,10 @@ public class OperationTest {
         final Operation operation = new Operation("1.3 + 1.6");
         assertDoesNotThrow(operation::getResult);
     }
+
+    @Test
+    public void testAddition() {
+        final Operation operation = new Operation("1.3 + 1.6");
+        assertEquals(1.9, operation.getResult());
+    }
 }
