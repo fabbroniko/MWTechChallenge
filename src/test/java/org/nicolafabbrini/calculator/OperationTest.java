@@ -45,6 +45,6 @@ public class OperationTest {
     @Test
     public void testAddition() {
         final Operation operation = new Operation("1.3 + 1.6");
-        assertEquals(1.9, operation.getResult());
+        assertEquals(2.9, operation.getResult());
     }
 }
