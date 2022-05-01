@@ -12,13 +12,14 @@ public class ArithmeticOperation extends AbstractOperation {
             case "+" -> expressionParameters.x + expressionParameters.y;
             case "-" -> expressionParameters.x - expressionParameters.y;
             case "*" -> expressionParameters.x * expressionParameters.y;
+            case "/" -> -1;
             default -> throw new IllegalArgumentException();
         };
     }
 
     @Override
     protected boolean isValid(final String expression) {
-        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*]\\s(\\d+([.]?\\d+)?)", expression);
+        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*/]\\s(\\d+([.]?\\d+)?)", expression);
     }
 
     /**
