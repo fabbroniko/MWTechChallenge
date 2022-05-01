@@ -49,6 +49,8 @@ public class ArithmeticOperation extends AbstractOperation {
     private double divide(final double x, final double y) {
         if(x == 0)
             return 0;
+        if(y == 0)
+            throw new RuntimeException("undefined");
 
         return -1;
     }
