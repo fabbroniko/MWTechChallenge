@@ -13,7 +13,7 @@ public class ArithmeticOperation extends AbstractOperation {
 
     @Override
     protected boolean isValid(final String expression) {
-        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+]\\s(\\d+([.]?\\d+)?)", expression);
+        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+|-]\\s(\\d+([.]?\\d+)?)", expression);
     }
 
     /**
