@@ -9,6 +9,6 @@ public class OperationTest {
     @Test
     public void testOperationNullInput() {
         final Operation operation = new Operation(null);
-        assertThrows(IllegalArgumentException.class, operation.getResult());
+        assertThrows(IllegalArgumentException.class, operation::getResult);
     }
 }
