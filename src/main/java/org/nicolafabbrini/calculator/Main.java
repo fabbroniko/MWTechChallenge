@@ -11,7 +11,7 @@ public class Main {
         intro();
 
         final Scanner scanner = new Scanner(System.in);
-        String expression = null;
+        String expression;
 
         do {
             System.out.print("Type your expression: ");
@@ -21,7 +21,7 @@ public class Main {
                     final double result = new Operation(expression).getResult();
                     System.out.println(MessageFormat.format("Result of {0} is {1}", expression, result));
                 } catch (final Exception e) {
-                    System.err.println(e.getMessage());
+                    System.out.println(e.getMessage());
                 }
             }
         } while (!QUIT_COMMAND.equals(expression));
