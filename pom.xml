@@ -6,7 +6,7 @@
 
     <groupId>org.nicolafabbrini</groupId>
     <artifactId>MWTechChallenge</artifactId>
-    <version>0.1.ALPHA</version>
+    <version>1.0.BETA</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
