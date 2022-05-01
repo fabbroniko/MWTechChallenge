@@ -4,11 +4,11 @@ import org.nicolafabbrini.calculator.module.ArithmeticOperation;
 
 import java.util.Optional;
 
-public class Operation {
+public class Calculator {
 
     private final String expression;
 
-    public Operation(final String expression) {
+    public Calculator(final String expression) {
         this.expression = expression;
     }
 

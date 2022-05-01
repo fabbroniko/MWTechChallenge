@@ -18,7 +18,7 @@ public class Main {
             expression = scanner.nextLine();
             if(!QUIT_COMMAND.equals(expression)) {
                 try {
-                    final double result = new Operation(expression).getResult();
+                    final double result = new Calculator(expression).getResult();
                     System.out.println(MessageFormat.format("Result of {0} is {1}", expression, result));
                 } catch (final Exception e) {
                     System.out.println(e.getMessage());
