@@ -26,4 +26,12 @@ public class OperationTest {
         final Operation operation = new Operation("Hello");
         assertThrows(IllegalArgumentException.class, operation::getResult);
     }
+
+    @Test
+    public void testOperationWrongFormatWithMessage() {
+        final Operation operation = new Operation("Hello");
+        Exception thrown = assertThrows(IllegalArgumentException.class, operation::getResult);
+
+        assertEquals("The expression is not valid", thrown.getMessage());
+    }
 }
