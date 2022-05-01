@@ -8,7 +8,11 @@ public class ArithmeticOperation extends AbstractOperation {
     protected double getResultInternal(final String expression) {
         final Operands operands = new Operands(expression);
 
-        return operands.x + operands.y;
+        if(operands.operator.equals("+")) {
+            return operands.x + operands.y;
+        }
+
+        return operands.x - operands.y;
     }
 
     @Override
@@ -27,10 +31,13 @@ public class ArithmeticOperation extends AbstractOperation {
         private final double x;
         private final double y;
 
+        private final String operator;
+
         private Operands(final String expression) {
             final String[] split = expression.split("\\s");
             this.x = Double.parseDouble(split[FIRST_OPERAND_INDEX]);
             this.y = Double.parseDouble(split[SECOND_OPERAND_INDEX]);
+            this.operator = split[1];
         }
     }
 }
