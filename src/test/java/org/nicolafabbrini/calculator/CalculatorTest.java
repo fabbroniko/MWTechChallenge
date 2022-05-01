@@ -71,4 +71,38 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertEquals(15, calculator.getResult("3 * 5"));
     }
+
+    @Test
+    public void testValidDivisionFormat() {
+        final Calculator calculator = new Calculator();
+        assertDoesNotThrow(() -> calculator.getResult("19 / 2"));
+    }
+
+    @Test
+    public void testDivisionZeroDividend() {
+        final Calculator calculator = new Calculator();
+        assertEquals(0, calculator.getResult("0 / 4"));
+    }
+
+    @Test
+    public void testDivisionZeroDivisor() {
+        final Calculator calculator = new Calculator();
+        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("5 / 0"));
+
+        assertEquals("undefined", thrown.getMessage());
+    }
+
+    @Test
+    public void testDividingZeroByZero() {
+        final Calculator calculator = new Calculator();
+        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("0 / 0"));
+
+        assertEquals("infinity", thrown.getMessage());
+    }
+
+    @Test
+    public void testDivision() {
+        final Calculator calculator = new Calculator();
+        assertEquals(5, calculator.getResult("15 / 3"));
+    }
 }

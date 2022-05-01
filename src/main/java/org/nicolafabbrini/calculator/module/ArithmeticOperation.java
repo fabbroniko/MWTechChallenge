@@ -12,13 +12,23 @@ public class ArithmeticOperation extends AbstractOperation {
             case "+" -> expressionParameters.x + expressionParameters.y;
             case "-" -> expressionParameters.x - expressionParameters.y;
             case "*" -> expressionParameters.x * expressionParameters.y;
+            case "/" -> divide(expressionParameters.x, expressionParameters.y);
             default -> throw new IllegalArgumentException();
         };
     }
 
     @Override
     protected boolean isValid(final String expression) {
-        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*]\\s(\\d+([.]?\\d+)?)", expression);
+        return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*/]\\s(\\d+([.]?\\d+)?)", expression);
+    }
+
+    private double divide(final double x, final double y) {
+        if(y == 0 && x == 0)
+            throw new RuntimeException("infinity");
+        if(y == 0)
+            throw new RuntimeException("undefined");
+
+        return x / y;
     }
 
     /**
