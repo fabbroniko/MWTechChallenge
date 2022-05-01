@@ -4,19 +4,15 @@ import java.util.regex.Pattern;
 
 public class ArithmeticOperation extends AbstractOperation {
 
-    public ArithmeticOperation(final String expression) {
-        super(expression);
-    }
-
     @Override
-    protected double getResultInternal() {
+    protected double getResultInternal(final String expression) {
         final Operands operands = new Operands(expression);
 
         return operands.x + operands.y;
     }
 
     @Override
-    protected boolean isValid() {
+    protected boolean isValid(final String expression) {
         return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+]\\s(\\d+([.]?\\d+)?)", expression);
     }
 

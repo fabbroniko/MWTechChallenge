@@ -19,6 +19,6 @@ public class Calculator {
     public double getResult() {
         Optional.ofNullable(expression).orElseThrow(() -> new IllegalArgumentException("The expression must be set"));
 
-        return new ArithmeticOperation(expression).getResult();
+        return new ArithmeticOperation().getResult(expression);
     }
 }
