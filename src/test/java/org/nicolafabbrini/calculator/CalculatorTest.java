@@ -59,4 +59,10 @@ public class CalculatorTest {
         final Calculator calculator = new Calculator();
         assertEquals(6, calculator.getResult("10 - 4"));
     }
+
+    @Test
+    public void testValidMultiplicationFormat() {
+        final Calculator calculator = new Calculator();
+        assertDoesNotThrow(() -> calculator.getResult("3 * 5"));
+    }
 }
