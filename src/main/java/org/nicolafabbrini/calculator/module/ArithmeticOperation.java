@@ -12,7 +12,7 @@ public class ArithmeticOperation extends AbstractOperation {
             case "+" -> expressionParameters.x + expressionParameters.y;
             case "-" -> expressionParameters.x - expressionParameters.y;
             case "*" -> expressionParameters.x * expressionParameters.y;
-            case "/" -> -1;
+            case "/" -> divide(expressionParameters.x, expressionParameters.y);
             default -> throw new IllegalArgumentException();
         };
     }
@@ -44,5 +44,12 @@ public class ArithmeticOperation extends AbstractOperation {
             this.y = Double.parseDouble(split[SECOND_OPERAND_INDEX]);
             this.operator = split[OPERATOR_INDEX];
         }
+    }
+
+    private double divide(final double x, final double y) {
+        if(x == 0)
+            return 0;
+
+        return -1;
     }
 }
