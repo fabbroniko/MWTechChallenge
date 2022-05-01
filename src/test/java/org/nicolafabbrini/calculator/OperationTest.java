@@ -20,4 +20,10 @@ public class OperationTest {
 
         assertEquals("The expression must be set", thrown.getMessage());
     }
+
+    @Test
+    public void testOperationWithWrongExpressionFormat() {
+        final Operation operation = new Operation("Hello");
+        assertThrows(IllegalArgumentException.class, operation::getResult);
+    }
 }
