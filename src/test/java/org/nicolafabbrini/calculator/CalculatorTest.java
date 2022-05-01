@@ -91,4 +91,12 @@ public class CalculatorTest {
 
         assertEquals("undefined", thrown.getMessage());
     }
+
+    @Test
+    public void testDividingZeroByZero() {
+        final Calculator calculator = new Calculator();
+        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("0 / 0"));
+
+        assertEquals("infinity", thrown.getMessage());
+    }
 }
