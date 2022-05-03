@@ -1,5 +1,6 @@
 package org.nicolafabbrini.calculator;
 
+import org.nicolafabbrini.calculator.exception.IllegalExpressionException;
 import org.nicolafabbrini.calculator.module.AbstractOperation;
 
 import java.util.List;
@@ -39,6 +40,6 @@ public class Calculator {
             }
         }
 
-        throw new IllegalArgumentException("The expression is not valid");
+        throw new IllegalExpressionException();
     }
 }
