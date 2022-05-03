@@ -1,5 +1,7 @@
 package org.nicolafabbrini.calculator.module;
 
+import org.nicolafabbrini.calculator.exception.UnexpectedException;
+
 import java.util.regex.Pattern;
 
 public class ArithmeticOperation extends AbstractOperation {
@@ -13,12 +15,12 @@ public class ArithmeticOperation extends AbstractOperation {
             case "-" -> expressionParameters.x - expressionParameters.y;
             case "*" -> expressionParameters.x * expressionParameters.y;
             case "/" -> divide(expressionParameters.x, expressionParameters.y);
-            default -> throw new IllegalArgumentException();
+            default -> throw new UnexpectedException();
         };
     }
 
     @Override
-    protected boolean isValid(final String expression) {
+    public boolean isValid(final String expression) {
         return Pattern.matches("(\\d+([.]?\\d+)?)\\s[+\\-*/]\\s(\\d+([.]?\\d+)?)", expression);
     }
 

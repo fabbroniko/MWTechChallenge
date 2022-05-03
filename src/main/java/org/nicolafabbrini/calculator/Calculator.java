@@ -11,8 +11,6 @@ import java.util.Optional;
  */
 public class Calculator {
 
-    private static final String EXCEPTION_MESSAGE = "The expression is not valid";
-
     private final List<? extends AbstractOperation> operationsAvailable;
 
     public Calculator() {
@@ -26,20 +24,10 @@ public class Calculator {
     public double getResult(final String expression) {
         Optional.ofNullable(expression).orElseThrow(() -> new IllegalArgumentException("The expression must be set"));
 
-        /*
-         * Attempts to run the calculation with each module loaded into the application.
-         * It returns the first available result or propagates the exception if required.
-         */
-        for(AbstractOperation currentAvailableOperation : operationsAvailable) {
-            try {
-                return currentAvailableOperation.getResult(expression);
-            } catch (final Exception e) {
-                if(!EXCEPTION_MESSAGE.equals(e.getMessage())) {
-                    throw e;
-                }
-            }
-        }
-
-        throw new IllegalExpressionException();
+        // Use the first module that is capable of processing the expression.
+        return operationsAvailable.stream()
+                .filter((o) -> o.isValid(expression))
+                .findFirst().orElseThrow(IllegalExpressionException::new)
+                .getResult(expression);
     }
 }
