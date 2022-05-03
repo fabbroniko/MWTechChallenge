@@ -24,9 +24,9 @@ public class ArithmeticOperation extends AbstractOperation {
 
     private double divide(final double x, final double y) {
         if(y == 0 && x == 0)
-            throw new RuntimeException("infinity");
+            throw new ArithmeticException("infinity");
         if(y == 0)
-            throw new RuntimeException("undefined");
+            throw new ArithmeticException("undefined");
 
         return x / y;
     }
