@@ -1,5 +1,7 @@
 package org.nicolafabbrini.calculator.module;
 
+import org.nicolafabbrini.calculator.exception.UnexpectedException;
+
 /**
  * This class represents any operation that can be performed through this new calculator.
  * It defines methods that allow different strategies to be used to validate, calculate and round a mathematical operation.
@@ -17,7 +19,7 @@ public abstract class AbstractOperation {
      */
     public double getResult(final String expression) {
         if(!isValid(expression)) {
-            throw new IllegalArgumentException("The expression is not valid");
+            throw new UnexpectedException();
         }
 
         // Returns the result after rounding it
@@ -39,7 +41,7 @@ public abstract class AbstractOperation {
      * @param expression The expression to validate.
      * @return Returns true if the expression is valid for the instance of this class, false otherwise.
      */
-    protected abstract boolean isValid(final String expression);
+    public abstract boolean isValid(final String expression);
 
     /**
      * The default strategy to overcome (hide in this case) floating point precision errors is going to be rounding the result to the third decimal number.

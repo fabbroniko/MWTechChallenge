@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
+import org.nicolafabbrini.calculator.exception.IllegalExpressionException;
 
 public class CalculatorTest {
 
@@ -25,13 +26,13 @@ public class CalculatorTest {
     @Test
     public void testCalculatorWithWrongExpressionFormat() {
         final Calculator calculator = new Calculator();
-        assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
+        assertThrows(IllegalExpressionException.class, () -> calculator.getResult("Hello"));
     }
 
     @Test
     public void testCalculatorWrongFormatWithMessage() {
         final Calculator calculator = new Calculator();
-        Exception thrown = assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
+        Exception thrown = assertThrows(IllegalExpressionException.class, () -> calculator.getResult("Hello"));
 
         assertEquals("The expression is not valid", thrown.getMessage());
     }
@@ -87,7 +88,7 @@ public class CalculatorTest {
     @Test
     public void testDivisionZeroDivisor() {
         final Calculator calculator = new Calculator();
-        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("5 / 0"));
+        final Exception thrown = assertThrows(ArithmeticException.class, () -> calculator.getResult("5 / 0"));
 
         assertEquals("undefined", thrown.getMessage());
     }
@@ -95,7 +96,7 @@ public class CalculatorTest {
     @Test
     public void testDividingZeroByZero() {
         final Calculator calculator = new Calculator();
-        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("0 / 0"));
+        final Exception thrown = assertThrows(ArithmeticException.class, () -> calculator.getResult("0 / 0"));
 
         assertEquals("infinity", thrown.getMessage());
     }
