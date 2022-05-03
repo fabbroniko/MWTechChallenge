@@ -1,9 +1,7 @@
 package org.nicolafabbrini.calculator;
 
 import org.nicolafabbrini.calculator.module.AbstractOperation;
-import org.nicolafabbrini.calculator.module.ArithmeticOperation;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,10 +12,10 @@ public class Calculator {
 
     private static final String EXCEPTION_MESSAGE = "The expression is not valid";
 
-    private final List<AbstractOperation> operationsAvailable = new ArrayList<>();
+    private final List<? extends AbstractOperation> operationsAvailable;
 
     public Calculator() {
-        operationsAvailable.add(new ArithmeticOperation());
+        operationsAvailable = CalculatorModuleLoader.getModules();
     }
 
     /**
@@ -28,11 +26,8 @@ public class Calculator {
         Optional.ofNullable(expression).orElseThrow(() -> new IllegalArgumentException("The expression must be set"));
 
         /*
-         * This is to easily add modules (like trigonometry or logarithms) to the calculator without changing anything
-         * in the calculators code other than adding the module in the 'operationsAvailable' list.
-         *
-         * A better way to do this that would require no changes at all would be through the use of reflection. Simply
-         * add the module in the repository, and it would be picked up automatically.
+         * Attempts to run the calculation with each module loaded into the application.
+         * It returns the first available result or propagates the exception if required.
          */
         for(AbstractOperation currentAvailableOperation : operationsAvailable) {
             try {
