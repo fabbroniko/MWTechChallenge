@@ -87,7 +87,7 @@ public class CalculatorTest {
     @Test
     public void testDivisionZeroDivisor() {
         final Calculator calculator = new Calculator();
-        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("5 / 0"));
+        final Exception thrown = assertThrows(MathException.class, () -> calculator.getResult("5 / 0"));
 
         assertEquals("undefined", thrown.getMessage());
     }
@@ -95,7 +95,7 @@ public class CalculatorTest {
     @Test
     public void testDividingZeroByZero() {
         final Calculator calculator = new Calculator();
-        final Exception thrown = assertThrows(RuntimeException.class, () -> calculator.getResult("0 / 0"));
+        final Exception thrown = assertThrows(MathException.class, () -> calculator.getResult("0 / 0"));
 
         assertEquals("infinity", thrown.getMessage());
     }
