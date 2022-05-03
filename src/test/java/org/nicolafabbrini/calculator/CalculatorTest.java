@@ -25,13 +25,13 @@ public class CalculatorTest {
     @Test
     public void testCalculatorWithWrongExpressionFormat() {
         final Calculator calculator = new Calculator();
-        assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
+        assertThrows(IllegalExpressionException.class, () -> calculator.getResult("Hello"));
     }
 
     @Test
     public void testCalculatorWrongFormatWithMessage() {
         final Calculator calculator = new Calculator();
-        Exception thrown = assertThrows(IllegalArgumentException.class, () -> calculator.getResult("Hello"));
+        Exception thrown = assertThrows(IllegalExpressionException.class, () -> calculator.getResult("Hello"));
 
         assertEquals("The expression is not valid", thrown.getMessage());
     }
